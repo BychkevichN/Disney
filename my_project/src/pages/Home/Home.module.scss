@@ -1,0 +1,38 @@
+.container_container {
+  margin: 0 auto;
+
+  .container_wrapper {
+    box-sizing: content-box;
+    max-width: 1200px;
+    min-height: 100vh;
+    padding: 20px 0 20px 0;
+
+
+    .container_cards {
+      display: grid;
+      justify-content: center;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      gap: 30px;
+      text-decoration: none;
+      color: #000;
+      font-weight: bold;
+
+      .container_cardInfo{
+        text-decoration: none;
+
+
+      .container_cardInfo_image{
+        width: 200px;
+        height: 200px;
+        border-radius: 10px;
+      }
+
+      .container_cardInfo_name {
+        font-size: 19px;
+        text-align: center;
+        color: black;
+      }
+    }
+   }
+  }
+}

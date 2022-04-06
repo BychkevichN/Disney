@@ -1,0 +1,26 @@
+.container_container {
+  margin: 0 auto;
+
+  .container_wrapper {
+    box-sizing: content-box;
+    max-width: 1540px;
+    min-height: 100vh;
+    background-color: rgb(255, 240, 242);
+
+    .container_cardInfo {
+      text-align: center;
+      padding: 20px 0 20px 0;
+
+      .container_cardInfo_image {
+        width: 50%;
+        height: 50%;
+      }
+
+      .container_cardInfo_name {
+        font-size: 25px;
+        font-weight: bold;
+      }
+    }
+
+  }
+}
