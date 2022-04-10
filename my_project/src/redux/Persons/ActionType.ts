@@ -1,6 +1,7 @@
 enum IGetAllPersonsActionType {
   GetAll = "GetAllPersons",
-  GetPerson = "GetPerson"
+  GetPerson = "GetPerson",
+  FilterPerson = 'FilterPerson'
 };
 
 export default IGetAllPersonsActionType;

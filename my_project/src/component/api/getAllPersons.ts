@@ -13,7 +13,7 @@ export interface IGetAllPersons {
   imageUrl: string;
   url: string;
 }
-const getAllPersons =async (): Promise<IGetAllPersons[]> => {
+const getAllPersons = async (): Promise<IGetAllPersons[]> => {
   const response = await axios.get('https://api.disneyapi.dev/characters');
 
   return response.data.data;

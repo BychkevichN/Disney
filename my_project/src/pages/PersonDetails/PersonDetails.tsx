@@ -1,3 +1,4 @@
+import { Card, Skeleton, CardMedia, CardContent, Typography, CardActions } from '@mui/material';
 import { FC, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -17,58 +18,49 @@ const PersonDetails: FC= () => {
 
   return (
     <PageLayout>
-      <div className={styles.container_container}>
+      <div className={styles.container}>
         <div className={styles.container_wrapper}>
-          {person && (
-            <div key={person._id} className={styles.container_cardInfo}>
-              <img src={person.imageUrl} alt={person.name} className={styles.container_cardInfo_image}/>
-              <div className={styles.container_cardInfo_name}>{person.name}</div>
-              <div>
-                {/* <strong>Films</strong> */}
-                {person.films !== [] && person.films.map((film) => (
-                  <div key={film}><strong>Film: </strong>{film}</div>
-                ))}
+          <div className={styles.container_card}>
+            {!person && <Skeleton variant="rectangular" height={800} />}
+            {person && <img alt="CardPhoto" src={person.imageUrl} />}
+            <div className={styles.cardContent}>
+              <div className={styles.name}>
+                {person?.name}
+                {!person && <Skeleton width="33%" variant='text' />}
               </div>
-              {person.shortFilms !== [] && (
-                <div>
-                  {/* <strong>Short films</strong> */}
-                  {person.shortFilms.map((film) => (
-                    <div key={film}><strong>Short films: </strong>Short films: {film}</div>
-                  ))}
-              </div>
-              )}
-              <div>
-                {/* <strong>TV-Shows</strong> */}
-                {person.tvShows !== [] && person.tvShows.map((shows) => (
-                  <div key={shows}><strong>TV-Shows:</strong> {shows}</div>
+              <ul className={styles.films}>
+                <strong>Films: {person?.films.length === 0 && <strong className={styles.red}>None</strong>}</strong>
+                {!person?.films && <Skeleton width="90%" variant="text" />}
+                {person?.films.length !== 0 && person?.films.map(film => (
+                  <li key={film}>"{film}"</li>
                 ))}
-              </div>
-              <div>
-                {/* <strong>videoGames</strong> */}
-                {person.videoGames !== [] && person.videoGames.map((games) => (
-                  <div key={games}><strong>VideoGames:</strong> {games}</div>
+              </ul>
+              <ul className={styles.films}>
+                <strong>Short-films: {person?.shortFilms.length === 0 && <strong className={styles.red}>None</strong>}</strong>
+                {!person?.shortFilms && <Skeleton width="80%" variant="text" />}
+                {person?.shortFilms.length !== 0 && person?.shortFilms.map(film => (
+                  <li key={film}>"{film}"</li>
                 ))}
-              </div>
-              <div>
-                {/* <strong>TV-Shows</strong> */}
-                {person.parkAttractions !== [] && person.parkAttractions.map((park) => (
-                  <div key={park}><strong>ParkAttractions: </strong>{park}</div>
+              </ul>
+              <ul className={styles.films}>
+                <strong>Tv-Shows: {person?.tvShows.length === 0 && <strong className={styles.red}>None</strong>}</strong>
+                {!person?.tvShows && <Skeleton width="80%" variant="text" />}
+                {person?.tvShows.length !== 0 && person?.tvShows.map(film => (
+                  <li key={film}>"{film}"</li>
                 ))}
-              </div>
-              <div>
-                {/* <strong>TV-Shows</strong> */}
-                {person.allies !== [] && person.allies.map((allies) => (
-                  <div key={allies}><strong>Allies: </strong>{allies}</div>
+              </ul>
+              <ul className={styles.films}>
+                <strong>Video-games: {person?.videoGames.length === 0 && <strong className={styles.red}>None</strong>}</strong>
+                {!person?.tvShows && <Skeleton width="78%" variant="text" />}
+                {person?.videoGames.length !== 0 && person?.videoGames.map(film => (
+                  <li key={film}>"{film}"</li>
                 ))}
-              </div>
-              <div>
-                {/* <strong>TV-Shows</strong> */}
-                {person.enemies !== [] && person.enemies.map((enemies) => (
-                  <div key={enemies}><strong>Enemies: </strong>{enemies}</div>
-                ))}
+              </ul>
+              <div className={styles.subtitle}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
               </div>
             </div>
-          )}
+          </div>
         </div>
       </div>
     </PageLayout>
